@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\draftkarne.csproj": {}
+    "C:\\Users\\user\\Documents\\5a\\Kacper Jaskuła\\draft-game\\draftkarne\\draftkarne.csproj": {}
   },
   "projects": {
-    "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\draftkarne.csproj": {
+    "C:\\Users\\user\\Documents\\5a\\Kacper Jaskuła\\draft-game\\draftkarne\\draftkarne.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\draftkarne.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\5a\\Kacper Jaskuła\\draft-game\\draftkarne\\draftkarne.csproj",
         "projectName": "draftkarne",
-        "projectPath": "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\draftkarne.csproj",
-        "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\5a\\Kacper Jaskuła\\draft-game\\draftkarne\\draftkarne.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\5a\\Kacper Jaskuła\\draft-game\\draftkarne\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
