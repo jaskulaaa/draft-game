@@ -22,14 +22,16 @@ public class Zawodnik
 }
 
 class Gra
-{
+{   
     private List<Zawodnik> zawodnicy;  // Lista do przechowywania zawodników
 
     public Gra()
     {
         zawodnicy = new List<Zawodnik>();
-        WczytajZawodnikowZPliku(".zawodnicytxt");
+        WczytajZawodnikowZPliku("pilkarze.txt");
     }
+
+    
 
     public void WczytajZawodnikowZPliku(string sciezkaPliku)
     {
