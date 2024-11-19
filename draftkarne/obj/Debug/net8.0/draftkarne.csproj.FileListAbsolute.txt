@@ -1,0 +1,15 @@
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.AssemblyInfoInputs.cache
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.AssemblyInfo.cs
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.csproj.CoreCompileInputs.cache
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.sourcelink.json
+C:\Users\student\Desktop\draft\draft-game\draftkarne\bin\Debug\net8.0\draftkarne.exe
+C:\Users\student\Desktop\draft\draft-game\draftkarne\bin\Debug\net8.0\draftkarne.deps.json
+C:\Users\student\Desktop\draft\draft-game\draftkarne\bin\Debug\net8.0\draftkarne.runtimeconfig.json
+C:\Users\student\Desktop\draft\draft-game\draftkarne\bin\Debug\net8.0\draftkarne.dll
+C:\Users\student\Desktop\draft\draft-game\draftkarne\bin\Debug\net8.0\draftkarne.pdb
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.dll
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\refint\draftkarne.dll
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.pdb
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\draftkarne.genruntimeconfig.cache
+C:\Users\student\Desktop\draft\draft-game\draftkarne\obj\Debug\net8.0\ref\draftkarne.dll
