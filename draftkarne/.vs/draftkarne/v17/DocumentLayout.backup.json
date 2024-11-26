@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\",
+  "WorkspaceRootPath": "C:\\Users\\student\\Desktop\\mango\\draft-game\\draftkarne\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFBF7267-C645-4C4C-A6EC-2FA9B930A7DC}|draftkarne.csproj|c:\\users\\student\\desktop\\draft\\draft-game\\draftkarne\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFBF7267-C645-4C4C-A6EC-2FA9B930A7DC}|draftkarne.csproj|c:\\users\\student\\desktop\\mango\\draft-game\\draftkarne\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFBF7267-C645-4C4C-A6EC-2FA9B930A7DC}|draftkarne.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\student\\Desktop\\mango\\draft-game\\draftkarne\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAmwHQAAAAxAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\student\\Desktop\\mango\\draft-game\\draftkarne\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAAAMsAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T06:38:21.835Z",
               "EditorCaption": ""

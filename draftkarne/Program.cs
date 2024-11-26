@@ -52,7 +52,7 @@ class Gra
     public Gra()
     {
         zawodnicy = new List<Zawodnik>();
-        WczytajZawodnikowZPliku("C:\\Users\\student\\Desktop\\draft\\draft-game\\draftkarne\\pilakrze.txt");
+        WczytajZawodnikowZPliku("C:\\Users\\student\\Desktop\\mango\\draft-game\\draftkarne\\pilakrze.txt");
         Console.WriteLine("Gracz 1 podaj swoja nazwe");
         nazwaGracza1 = Console.ReadLine();
         Console.WriteLine("Gracz 2 podaj swoja nazwe");
@@ -106,17 +106,120 @@ class Gra
         Console.WriteLine("Rozpoczęcie budowy skłądu " + nazwaGracza1);
         
         Random losowe = new Random();
-        string[] mozlwibramkarze = new string[3];
+        string[] mozlwibramkarze = new string[3]; 
+        string[] mozlwiobroncy = new string[6];
+        string[] mozlwipomocnicy = new string[9];
+        string[] mozlwinapastnicy = new string[6];
         for (int i = 0; i < mozlwibramkarze.Length; i++)
         {
             bool spr = false;
-            mozlwibramkarze[i] = zawodnicy[losowe.Next(75,100)].imienazwisko;
+
+            mozlwibramkarze[i] = zawodnicy[losowe.Next(76,100)].imienazwisko;
+
+            foreach(string bram in mozlwibramkarze)
+            {
+                if(mozlwibramkarze [i] == bram)
+                {
+                    spr = true;
+                }
+            }
+            if (spr == true){
+
+            }
            
           
         }
+        for (int i = 0; i < mozlwiobroncy.Length; i++)
+        {
+            bool spr = false;
+
+            mozlwiobroncy[i] = zawodnicy[losowe.Next(56, 75)].imienazwisko;
+
+            foreach (string ob in mozlwiobroncy)
+            {
+                if (mozlwiobroncy[i] == ob)
+                {
+                    spr = true;
+                }
+            }
+            if (spr == true)
+            {
+
+            }
+
+
+        }
+        for (int i = 0; i < mozlwipomocnicy.Length; i++)
+        {
+            bool spr = false;
+
+            mozlwipomocnicy[i] = zawodnicy[losowe.Next(30, 55)].imienazwisko;
+
+            foreach (string pom in mozlwipomocnicy)
+            {
+                if (mozlwipomocnicy[i] == pom)
+                {
+                    spr = true;
+                }
+            }
+            if (spr == true)
+            {
+
+            }
+
+
+        }
+        for (int i = 0; i < mozlwinapastnicy.Length; i++)
+        {
+            bool spr = false;
+
+            mozlwinapastnicy[i] = zawodnicy[losowe.Next(30, 55)].imienazwisko;
+
+            foreach (string nap in mozlwinapastnicy)
+            {
+                if (mozlwinapastnicy[i] == nap)
+                {
+                    spr = true;
+                }
+            }
+            if (spr == true)
+            {
+
+            }
+
+
+        }
+        Console.WriteLine("Wybierz jednego z 3 Bramkarzy podając numer od 1 do 3");
         foreach (string bram in mozlwibramkarze )
         {
             Console.WriteLine (bram);
+        }
+        int wybor = int.Parse(Console.ReadLine());
+        if (wybor > 3 || wybor < 1)
+        {
+            Console.WriteLine("Prosze wybrac numer od 1 do 3");
+        }
+        else
+        {
+            string wybranybram = mozlwibramkarze[wybor-1];
+            Console.WriteLine("wybrałeś Bramkarza: " + wybranybram);
+        }
+        Console.WriteLine("Wybierz dwoch z 6 oobroncow podając dwa różne numery od 1 do 6");
+        foreach(string bram in mozlwiobroncy)
+        {
+            Console.WriteLine(bram);
+        }
+        int wybor1 = int.Parse(Console.ReadLine());
+        int wybor2 = int.Parse(Console.ReadLine());
+        if ((wybor1 > 6 || wybor1 < 1)|| (wybor2 > 6 || wybor2 < 1) || (wybor == wybor2))
+        {
+            Console.WriteLine("Prosze wybrac numer od 1 do 6 i nie podawaj dwa razy tego samegu numeru");
+        }
+        else
+        {
+            string wybranyobr = mozlwiobroncy[wybor1-1];
+            string wybranyobr2 = mozlwiobroncy[wybor2-1];
+            Console.WriteLine("wybrałeś Obrońcó: " + wybranyobr + " i " + wybranyobr2);
         }
 
 
