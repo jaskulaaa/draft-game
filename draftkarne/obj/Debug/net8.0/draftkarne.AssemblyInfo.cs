@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("draftkarne")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f799a44d5bcc2e87b5efe395d2221034047f9e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8a08232f031106f3e3c688f8d5f44482101ebf7")]
 [assembly: System.Reflection.AssemblyProductAttribute("draftkarne")]
 [assembly: System.Reflection.AssemblyTitleAttribute("draftkarne")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
