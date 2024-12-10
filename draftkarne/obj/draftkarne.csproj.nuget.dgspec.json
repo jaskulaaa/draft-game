@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kacpe\\Desktop\\rafal\\draft-game\\draftkarne\\draftkarne.csproj": {}
+    "C:\\Users\\kacpe\\Desktop\\nigga bakls\\draft-game\\draftkarne\\draftkarne.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kacpe\\Desktop\\rafal\\draft-game\\draftkarne\\draftkarne.csproj": {
+    "C:\\Users\\kacpe\\Desktop\\nigga bakls\\draft-game\\draftkarne\\draftkarne.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kacpe\\Desktop\\rafal\\draft-game\\draftkarne\\draftkarne.csproj",
+        "projectUniqueName": "C:\\Users\\kacpe\\Desktop\\nigga bakls\\draft-game\\draftkarne\\draftkarne.csproj",
         "projectName": "draftkarne",
-        "projectPath": "C:\\Users\\kacpe\\Desktop\\rafal\\draft-game\\draftkarne\\draftkarne.csproj",
+        "projectPath": "C:\\Users\\kacpe\\Desktop\\nigga bakls\\draft-game\\draftkarne\\draftkarne.csproj",
         "packagesPath": "C:\\Users\\kacpe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kacpe\\Desktop\\rafal\\draft-game\\draftkarne\\obj\\",
+        "outputPath": "C:\\Users\\kacpe\\Desktop\\nigga bakls\\draft-game\\draftkarne\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
