@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Reflection;
 using System.Xml;
 
 public class Zawodnik
@@ -67,7 +69,17 @@ class Gra
     public Gra()
     {
         zawodnicy = new List<Zawodnik>();
-        WczytajZawodnikowZPliku("C:\\Users\\kacpe\\Desktop\\draft\\draft-game\\draftkarne\\pilakrze.txt");
+        string currentDirectory = Directory.GetCurrentDirectory();
+        string sciezkaPliku = Path.Combine(currentDirectory, "../../../pilakrze.txt");
+        if (File.Exists(sciezkaPliku))
+        {
+
+        }
+        else
+        {
+
+        }
+        WczytajZawodnikowZPliku(sciezkaPliku);
         Console.WriteLine("Gracz 1 podaj swoją nazwę:");
         nazwaGracza1 = Console.ReadLine();
         Console.WriteLine("Gracz 2 podaj swoją nazwę:");
@@ -152,23 +164,6 @@ class Gra
 
             // Wyświetlenie składu
 
-            Console.WriteLine("Twój skład:");
-            if (il == 1)
-            {
-                foreach (var zawodnik in sklad1)
-                {
-                    Console.WriteLine($"{zawodnik.poz}: {zawodnik.imienazwisko} (Atk: {zawodnik.atk}, Obr: {zawodnik.obr}, Kar: {zawodnik.kar})");
-
-                }
-            }
-            if (il == 2)
-            {
-                foreach (var zawodnik in sklad2)
-                {
-                    Console.WriteLine($"{zawodnik.poz}: {zawodnik.imienazwisko} (Atk: {zawodnik.atk}, Obr: {zawodnik.obr}, Kar: {zawodnik.kar})");
-
-                }
-            }
             il++;
         } while (il <= 2);
 
@@ -242,12 +237,26 @@ class Gra
 
         string liniaBoiska = new string('-', 100);
         Console.WriteLine(liniaBoiska);
-        Console.WriteLine("|");
-
-
+        string liniazielona = new string(' ', 100);
+        liniazielona = new string(' ', 94 - nazwaGracza1.Length);
+        Console.WriteLine("Skład " + nazwaGracza1 + liniazielona);
+        foreach (var zawodnik in sklad1)
+        {
+             liniazielona = new string(' ', 70 - zawodnik.poz.Length - zawodnik.imienazwisko.Length);
+            Console.WriteLine($"{zawodnik.poz}: {zawodnik.imienazwisko} (Atk: {zawodnik.atk}, Obr: {zawodnik.obr}, Kar: {zawodnik.kar})" + liniazielona);
+           
+        }
+        liniazielona = new string(' ', 94 - nazwaGracza2.Length);
         Console.WriteLine(liniaBoiska);
-
-
+        Console.WriteLine(liniaBoiska);
+        Console.WriteLine("Skład " + nazwaGracza2 + liniazielona);
+        foreach (var zawodnik in sklad2)
+         {
+            liniazielona = new string(' ', 70 - zawodnik.poz.Length - zawodnik.imienazwisko.Length);
+            Console.WriteLine($"{zawodnik.poz}: {zawodnik.imienazwisko} (Atk: {zawodnik.atk}, Obr: {zawodnik.obr}, Kar: {zawodnik.kar})" + liniazielona);
+                 
+        }
+        Console.WriteLine(liniaBoiska);
         Console.ResetColor();
     }
 
