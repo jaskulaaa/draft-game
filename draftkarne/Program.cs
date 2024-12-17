@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters;
 using System.Xml;
 
 public class Zawodnik
@@ -65,7 +66,8 @@ class Gra
     private List<Sklad2> sklad2;  // Lista składu gracza
     public string nazwaGracza1;
     public string nazwaGracza2;
-
+    public int wynikgracza1;
+    public int wynikgracza2;
     public Gra()
     {
         zawodnicy = new List<Zawodnik>();
@@ -90,6 +92,10 @@ class Gra
         sklad2 = new List<Sklad2>();
         RozpocznijDraft();
         WyswietlBoisko();
+       
+        ktowygra();
+       
+        karne();
     }
 
     public void WczytajZawodnikowZPliku(string sciezkaPliku)
@@ -161,12 +167,13 @@ class Gra
             WybierzZawodnikow(mozlwiobroncy, "Obrońca", 2, numerskladu);
             WybierzZawodnikow(mozlwipomocnicy, "Pomocnik", 3, numerskladu);
             WybierzZawodnikow(mozlwinapastnicy, "Napastnik", 2, numerskladu);
+            WybierzZawodnikow(mozlwinapastnicy,"Wykonawca karnych",1,numerskladu);
 
             // Wyświetlenie składu
 
             il++;
         } while (il <= 2);
-
+       
     }
 
     private void LosujZawodnikow(string[] lista, int minmalnyindex, int maksymlanyindex, Random losowe)
@@ -258,6 +265,377 @@ class Gra
         }
         Console.WriteLine(liniaBoiska);
         Console.ResetColor();
+    }
+    public void ktowygra()
+
+    {
+        
+        int wynikskladu1 = 0;
+        foreach (var zawodnik in sklad1)
+        {
+            wynikskladu1 += zawodnik.atk;
+            wynikskladu1 += zawodnik.obr;
+            wynikskladu1 += zawodnik.kar;
+
+        }
+        int wynikskladu2 = 0;
+        foreach (var zawodnik in sklad2)
+        {
+            wynikskladu2 += zawodnik.atk;
+            wynikskladu2 += zawodnik.obr;
+            wynikskladu2 += zawodnik.kar;   
+
+        }
+        Console.WriteLine("Gracz 1 ma wynik : " + wynikskladu1);
+        Console.WriteLine("Gracz 2 ma wynik : " + wynikskladu2);
+        if (wynikskladu1 > wynikskladu2 && wynikskladu1 < wynikskladu2 + 10)
+        {
+            Console.WriteLine("WYNIK WSTĘPNY 3:2");
+            wynikgracza1 = 3;
+            wynikgracza2 = 2;
+
+        }
+        if (wynikskladu1 > wynikskladu2 + 10)
+        {
+            Console.WriteLine("WYNIK WSTĘPNY 4:2");
+            wynikgracza1 = 4;
+            wynikgracza2 = 2;
+
+        }
+        if (wynikskladu1 < wynikskladu2 && wynikskladu2 < wynikskladu1 + 10)
+        {
+            Console.WriteLine("WYNIK WSTĘPNY 2:3");
+            wynikgracza1 = 2;
+            wynikgracza2 = 3;
+
+        }
+        if (wynikskladu1 + 10 < wynikskladu2 )
+        {
+            Console.WriteLine("WYNIK WSTĘPNY 2:4");
+            wynikgracza1 = 2;
+            wynikgracza2 = 4;
+
+        }
+        if (wynikskladu1 == wynikskladu2)
+        {
+            Console.WriteLine("WYNIK WSTĘPNY 2:2");
+            wynikgracza1 = 2;
+            wynikgracza2 = 2;
+
+        }
+
+
+
+    }
+    public void karne()
+    {
+        int ilosc_kranych_gracza1 = wynikgracza1;
+        int ilosc_kranych_gracza2 = wynikgracza2;
+        int wykonawca1;
+        int wykonawca2;
+        int bramkarz1;
+        int bramkarz2;
+        int udanekarne = 0;
+        int udanekarne2 = 0;
+        bramkarz1 = sklad1[0].kar;
+        bramkarz2 = sklad2[0].kar;
+        wykonawca1 = sklad1[8].kar;
+        wykonawca2 = sklad2[8].kar;
+        Random losowanie;
+        losowanie = new Random();
+        Console.WriteLine("Najpierw karne gracza 1");
+        for (int i = 0; i < ilosc_kranych_gracza1; i++)
+        {
+            Console.WriteLine("Wbierdz miejsce do oddania strzału");
+            Console.WriteLine("  1  " + "2  " + "3  " + "\n  " + "4  " + "5  " + "6  " + "\n" + "  7  " + "8  " + "9  ");
+            int strzal = int.Parse(Console.ReadLine());
+            if (wykonawca1 + 5 > bramkarz2)
+            {
+               int czyudane = losowanie.Next(1,5);
+                if (czyudane == 1 || czyudane == 2 || czyudane == 3 || czyudane == 4)
+                {
+                    if (bramkarz2 % 2 == 0)
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4 || czyudane2 == 3)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4 || czyudane2 == 3)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("niestety twój strzelec nie trafił w bramkę");
+                }
+            }
+            else
+            {
+                int czyudane = losowanie.Next(1, 5);
+                if (czyudane == 1 || czyudane == 2 || czyudane == 3 || czyudane == 4)
+                {
+                    if (bramkarz2 % 2 == 0)
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4 )
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("niestety twój strzelec nie trafił w bramkę");
+                }
+            }
+
+        }
+        Console.WriteLine("Teraz karne gracza 2");
+        for (int i = 0; i < ilosc_kranych_gracza2; i++)
+        {
+            Console.WriteLine("Wbierdz miejsce do oddania strzału");
+            Console.WriteLine("  1  " + " 2  " + " 3  " + "\n" + "4  " + "5  " + "6  " + "\n" + "  7  " + " 8  " + " 9  ");
+            int strzal = int.Parse(Console.ReadLine());
+            if (wykonawca2 + 5 > bramkarz1)
+            {
+                int czyudane = losowanie.Next(1, 5);
+                if (czyudane == 1 || czyudane == 2 || czyudane == 3 || czyudane == 4)
+                {
+                    if (bramkarz2 % 2 == 0)
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4 || czyudane2 == 3)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4 || czyudane2 == 3)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("niestety twój strzelec nie trafił w bramkę");
+                }
+            }
+            else
+            {
+                int czyudane = losowanie.Next(1, 5);
+                if (czyudane == 1 || czyudane == 2 || czyudane == 3 || czyudane == 4)
+                {
+                    if (bramkarz2 % 2 == 0)
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int czyudane2 = losowanie.Next(1, 5);
+                        if (strzal % 2 == 0)
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5 || czyudane2 == 4)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                        else
+                        {
+                            if (czyudane2 == 1 || czyudane2 == 5)
+                            {
+                                Console.WriteLine("GOL!!!!!");
+                                udanekarne += 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Niestety orbonione");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("niestety twój strzelec nie trafił w bramkę");
+                }
+            }
+
+        }
+        Console.Clear();
+        Console.SetWindowSize(120, 40); // Ustawia szerokość i wysokość okna konsoli
+
+        Console.WriteLine("KONCOWY WYNIK " + udanekarne + " : " + udanekarne2);
+       
+
+       
+        Console.WriteLine("Dziekujemy za GRE");
+
     }
 
 
